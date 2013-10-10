@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'python-gitlab'
+project = u'pyapi-gitlab'
 copyright = u'2013, Itxaka Serrano Garcia'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -186,7 +186,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'python-gitlab.tex', u'python-gitlab Documentation',
+  ('index', 'pyapi-gitla.tex', u'pyapi-gitla Documentation',
    u'Itxaka Serrano Garcia', 'manual'),
 ]
 
@@ -216,7 +216,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'python-gitlab', u'python-gitlab Documentation',
+    ('index', 'pyapi-gitla', u'pyapi-gitla Documentation',
      [u'Itxaka Serrano Garcia'], 1)
 ]
 
@@ -230,8 +230,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'python-gitlab', u'python-gitlab Documentation',
-   u'Itxaka Serrano Garcia', 'python-gitlab', 'One line description of project.',
+  ('index', 'pyapi-gitlab', u'pyapi-gitlab Documentation',
+   u'Itxaka Serrano Garcia', 'pyapi-gitlab', 'One line description of project.',
    'Miscellaneous'),
 ]
 

@@ -2,15 +2,15 @@
 
 from setuptools import setup, find_packages
 setup(
-    name = "i-python-gitlab",
-    version = "6.1",
+    name = "pyapi-gitlab",
+    version = "develop",
     packages = find_packages(),
     install_requires = ['requests', 'markdown'],
     # metadata for upload to PyPI
     author = "Itxaka Serrano Garcia",
     author_email = "itxakaserrano@gmail.com",
-    description = "Manage gitlab from python",
+    description = "Gitlab API wrapper for Gitlab X.X",
     license = "GPL3",
     keywords = "gitlab git wrapper",
-    url = "http://github.com/itxaka/i-python-gitlab/",
+    url = "http://github.com/itxaka/pyapi-gitlab/",
 )

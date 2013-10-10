@@ -3,17 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to i-python-gitlab's documentation!
+Welcome to pyapi-gitlab's documentation!
 =========================================
 
 
-i-python-gitlab is a wrapper to access all the functions of Gitlab from our python scripts.
+pyapi-gitlab is a wrapper to access all the functions of Gitlab from our python scripts.
 
 Installation
 =============
 
 
-   pip install i-python-gitlab
+   pip install pyapi-gitlab
 
 
 How to use it
