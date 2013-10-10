@@ -1,6 +1,6 @@
-# python-gitlab
+# pyapi-gitlab
 
-python-gitlab is a python wrapper for the [Gitlab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api).
+pyapi-gitlab is a python wrapper for the [Gitlab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api).
 
 ## Requirements
 
@@ -9,10 +9,10 @@ python-gitlab is a python wrapper for the [Gitlab API](https://github.com/gitlab
 
 ## Installation
 
-i-python-gitlab is now on Pypi! Install it with:
+pyapi-gitlab is now on Pypi! Install it with:
 
 ```bash
-pip install "i-python-gitlab==5.4"
+pip install "pyapi-gitlab==5.4"
 ```
 
 ## Examples/Documentation
@@ -21,4 +21,4 @@ Check the docs at [readthedocs.org](http://python-gitlab.readthedocs.org)
 
 ## License
 
-python-gitlab is licensed under the GPL3. Check the LICENSE file.
+pyapi-gitlab is licensed under the GPL3. Check the LICENSE file.
