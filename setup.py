@@ -2,8 +2,8 @@
 
 from setuptools import setup, find_packages
 setup(
-    name = "i-python-gitlab",
-    version = "5.4",
+    name = "pyapi-gitlab",
+    version = "5.4-0",
     packages = find_packages(),
     install_requires = ['requests', 'markdown'],
     # metadata for upload to PyPI
@@ -12,5 +12,5 @@ setup(
     description = "Python gitlab wrapper, for use with gitlab 5.x version",
     license = "GPL3",
     keywords = "gitlab git wrapper",
-    url = "http://github.com/itxaka/python-gitlab/",
+    url = "http://github.com/itxaka/pyapi-gitlab/",
 )
