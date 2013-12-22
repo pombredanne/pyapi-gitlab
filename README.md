@@ -1,6 +1,11 @@
 # pyapi-gitlab
 
-pyapi-gitlabb is a python wrapper for the [Gitlab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api).
+pyapi-gitlab is a python wrapper for the [Gitlab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api).
+
+[![Build Status](https://travis-ci.org/Itxaka/pyapi-gitlab.png?branch=6.1)](https://travis-ci.org/Itxaka/pyapi-gitlab)
+[![PyPI version](https://badge.fury.io/py/pyapi-gitlab.png)](http://badge.fury.io/py/pyapi-gitlab)
+[![Coverage Status](https://coveralls.io/repos/Itxaka/pyapi-gitlab/badge.png?branch=develop)](https://coveralls.io/r/Itxaka/pyapi-gitlab?branch=develop)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Itxaka/pyapi-gitlab/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Requirements
 
@@ -9,15 +14,20 @@ pyapi-gitlabb is a python wrapper for the [Gitlab API](https://github.com/gitlab
 
 ## Installation
 
-pyapi-gitlab is now on Pypi! Install it with:
+pyapi-gitlab is now on Pypi!
+
+To install:
 
 ```bash
 pip install pyapi-gitlab
 ```
 
+pyapi-gitlab supports python version 2.6, 2.7 and 3.3
+pyapi-gitlab supports Gitlab version 6.X and 5.4 (pip install pyapi-gitlab==5.4-0)
+
 ## Examples/Documentation
 
-Check the docs at [readthedocs.org](http://python-gitlab.readthedocs.org)
+Check the docs at [readthedocs.org](http://pyapi-gitlab.readthedocs.org)
 
 ## License
 

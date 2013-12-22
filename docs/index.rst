@@ -1,4 +1,4 @@
-.. python-gitlab documentation master file, created by
+.. pyapi-gitlab documentation master file, created by
    sphinx-quickstart on Sun Aug 04 20:46:27 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -9,11 +9,6 @@ Welcome to pyapi-gitlab's documentation!
 
 pyapi-gitlab is a wrapper to access all the functions of Gitlab from our python scripts.
 
-Installation
-=============
-
-
-   pip install pyapi-gitlab
 
 
 How to use it
@@ -52,12 +47,11 @@ Just call the instance with the parameter token::
     git = gitlab.Gitlab("our_gitlab_host", token="mytoken")
 
 
-
 Using sudo on the functions
-===========================
+=============================
 
 From version 6, gitlab accepts a sudo parameter in order to execute an order as if you were another user.
-This has been implemente in -i-python-gitlab on the following functions:
+This has been implemente in pyapi-gitlab on the following functions:
 
    getusers()
    
@@ -110,7 +104,32 @@ All you need to do is add a sudo="user" parameter when calling the function like
    git.createuser("name", "username", "password", "email", sudo="admin")
 
 
-If no user is specified, sudo will default to the current user, obtained when login into gitlab.
+Pagination
+===========
+
+The following functions now accept pagination:
+
+    getusers()
+
+    getprojects()
+
+    getprojectevents()
+
+    getissues()
+
+    getprojectissues()
+
+    getgroups()
+
+    getmergerequests()
+
+
+You can pass 2 parameters: page= and per_page= to them in order to get a especific page or change the results per page::
+
+    git.getissues(page=1, per_page=40)
+
+
+The default is to get page 1 and 20 results per page. The max value for per_page is 100.
 
 Users
 ==================
@@ -185,6 +204,10 @@ Please note that Gitlab 5 doesn't have this option and using it will probably en
                       issues_enabled=0, wall_enabled=0,
                       merge_requests_enabled=0, wiki_enabled=0,
                       snippets_enabled=0, public=0)
+
+Delete a project::
+
+    git.deleteproject(project_id)
 
 List project members::
 
@@ -281,7 +304,7 @@ Create an issue::
 
    git.createissue(1, "pedsdfdwsdne")
 
-Edit an issue, you can pass state_event="closed" to close it::
+Edit an issue, you can pass state_event="close" to close it::
 
    git.editissue(1,1, title="Changing title")
 
@@ -328,11 +351,28 @@ Groups
 
 Create a group::
 
-    def creategroup(self, name, path):
+    git.creategroup(self, name, path):
+
+Delete a group::
+
+    git.deletegroup(group_id)
 
 Get a group. If none are specified returns all the groups::
 
-    def getgroups(self, id_=None):
+    git.getgroups(self, id_=None):
+
+List group members::
+
+    git.listgroupmembers(group_id)
+
+Add a member to a group::
+
+    git.addgroupmember(group_id, user_id, access_level, sudo="")
+
+Delete a member from a group::
+
+    git.deletegroupmember(group_id, user_id)
+
 
 Merge support
 ==============
@@ -357,3 +397,143 @@ Add a comment to a merge request::
 
     git.addcommenttomergerequest(projectID, mergeRequestID, note)
 
+Snippets
+==========
+
+Get all the snippets from a project::
+
+    git.getsnippets(project_id)
+
+Get one snippet from a project::
+
+    git.getsnippet(project_id, snippet_id)
+
+Create a new snippet::
+
+    git.createsnippet(project_id, title, file_name, code, lifetime="")
+
+Get a snippet content(raw content)::
+
+    git.getsnippetcontent(project_id, snippet_id)
+
+Delete a snippet::
+
+    git.deletesnippet(project_id, snippet_id)
+
+Repositories
+==============
+
+Caution: Gitlab has a mixed feeling of repositories/projects. For example, to get the commits for a project you call the listrepositorycommits part, same with the tags.
+Have that in mind when working with commits and such, as I believe it should be included into the projects part and it may chage to that in the future.
+
+
+Get all the repositories for a project::
+
+    git.getrepositories(project_id)
+
+Get a branch from a repository::
+
+    git.getrepositorybranch(project_id, branch_name)
+
+Protect a repository branch::
+
+    git.protectrepositorybranch(project_id, branch_name)
+
+Unprotect a repository branch::
+
+    git.unprotectrepositorybranch(project_id, branch_name)
+
+List the the project tags::
+
+    git.listrepositorytags(project_id)
+
+List the the project commits::
+
+    git.listrepositorycommits(project_id)
+
+List on commit from a project::
+
+    git.listrepositorycommit(project_id, sha1)
+
+
+List the complete diff, lines changed included::
+
+    git.listrepositorycommitdiff(project_id, sha1)
+
+List the project tree, files and dirs. Use the path to explore subdirs::
+
+    git.listrepositorytree(project_id, path="", ref_name="")
+
+Get the raw blob from a project file::
+
+    git.getrawblob(project_id, sha1, path)
+
+
+Notes (from projects, issues, snippets)
+=======================================
+Get a project wall notes::
+
+    git.getprojectwallnotes(project_id)
+
+Get one specific wall note from a project::
+
+    git.getprojectwallnote(project_id, note_id)
+
+Create a wall note for a project::
+
+    git.createprojectwallnote(project_id, content)
+
+Get all the notes from an issue wall::
+
+    git.getissuewallnotes(project_id, issued_id)
+
+Get one note from an issue wall::
+
+    git.getissuewallnote(project_id, issue_id, note_id)
+
+Create a note in the wall of an issue::
+
+    git.createissuewallnote(project_id, issue_id, content)
+
+
+Get all the notes from a snippet wall::
+
+    git.getsnippetwallnotes(project_id, snippet_id)
+
+Get one note from a snippet wall::
+
+    git.getsnippetwallnote(project_id, snippet_id, note_id)
+
+Create a note in the wall of a snippet::
+
+    git.createsnippetewallnote(project_id, snippet_id, content)
+
+Get all the notes from a merge request wall::
+
+    git.getmergerequestwallnotes(project_id, merge_request_id)
+
+Get one note from a merge request wall::
+
+    git.getmergerequestwallnote(project_id, merge_request_id, note_id)
+
+Creat a note in the wall of a merge request::
+
+    git.createmergerequestewallnote(project_id, merge_request_id, content)
+
+Examples
+=========
+
+Getting the SHA1 of the commit
+===============================
+To call this, you need to pass the actual hash of the commit. You can access the sha1 by doing this::
+
+    git.listrepositorycommits(project_id)
+
+This would return a list of dicts with all the commits for that project. You can extract the sha1 of the commit by
+accessing the commit you want and using the key 'id' like this::
+
+    git.listrepositorycommits(2)[0]['id']
+
+In turn the whole thing (that is, if you know which commit number you need) would turn like this::
+
+    git.listrepositorycommit(2, self.git.listrepositorycommits(2)[0]['id'])
